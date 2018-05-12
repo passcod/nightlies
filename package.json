@@ -1,0 +1,25 @@
+{
+  "name": "nightlies",
+  "version": "1.0.0",
+  "description": "Dynamic nightlies for Arch",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/passcod/nightlies.git"
+  },
+  "keywords": [
+    "archlinux",
+    "packages",
+    "nightlies",
+    "firefox"
+  ],
+  "author": "Félix Saparelli <felix@passcod.name> (https://passcod.name)",
+  "license": "Artistic-2.0",
+  "bugs": {
+    "url": "https://github.com/passcod/nightlies/issues"
+  },
+  "homepage": "https://github.com/passcod/nightlies#readme"
+}
