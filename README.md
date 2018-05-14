@@ -48,18 +48,11 @@ pacman -Sy firefox-nightly-auto
 1. When a request for the **repo database** comes in (i.e. when `pacman -Sy` is
    invoked), Nightlies checks its upstream (for Firefox Nightly, the Mozilla
    servers) for an update. If there is none, it happily returns the existing
-   database file. If there is one, it quickly compiles a _new_ file with the
-   new version number, and kicks off a generate process for the actual package.
+   database file. If there is one, it downloads and creates a new package as
+   fast as it can, notably omitting any compression.
 
-2. When a request for the **package** comes in (i.e. when `pacman -S package`
-   is invoked), Nightlies checks if the package version exists, and if it's
-   not, whether there is a running generate process for it (or kicks one off).
-   In the first case, it simply serves it. In the second, it blocks until the
-   process finishes and then returns with the brand new package.
-
-Nightlies generates uncompressed packages and databases _first_, so they're
-available quickly, then generates _maximally compressed_ files so further
-downloads are as efficient as possible.
+2. When that's done, a background process is kicked off to compress all files
+   as much as it can and regenerate the repo metadata in consequence.
 
 
 ## How to self host
